@@ -1,0 +1,130 @@
+{
+  "title": "View-Aware Polling",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up View-Aware Polling",
+        "description": "This adds View-Aware Polling. After setup, use the **Add** buttons on the integration to pick an **integration**, a **device** or an **entity** to make view-aware. Each one stops polling in the background and refreshes only while you are actually looking at it: on its device page, when you tap it to open the popup, or while you are viewing a dashboard that shows it."
+      }
+    },
+    "abort": {
+      "already_configured": "View-Aware Polling is already set up."
+    }
+  },
+  "config_subentries": {
+    "integration": {
+      "initiate_flow": {
+        "user": "Add a whole integration"
+      },
+      "entry_type": "Integration",
+      "step": {
+        "user": {
+          "title": "Make an integration view-aware",
+          "description": "Make every device and entity of an integration view-aware (for example Proxmox VE or TP-Link). It stops polling in the background and refreshes only while you are looking at it.",
+          "data": {
+            "target": "Integration",
+            "only_when_shown": "Only refresh on a dashboard that shows it",
+            "interval": "Refresh interval override (seconds)"
+          },
+          "data_description": {
+            "target": "The integration whose devices and entities you want to make view-aware.",
+            "only_when_shown": "Off (recommended): refresh whenever any dashboard is open, plus its device page and popup. On: on dashboards, only refresh while the open dashboard actually shows it.",
+            "interval": "Leave empty to use each target's own native polling interval. Set a value only to force a fixed rate while it is on screen."
+          }
+        },
+        "reconfigure": {
+          "title": "Edit {name}",
+          "description": "Change how {name} is made view-aware.",
+          "data": {
+            "only_when_shown": "Only refresh on a dashboard that shows it",
+            "interval": "Refresh interval override (seconds)"
+          },
+          "data_description": {
+            "only_when_shown": "Off (recommended): refresh whenever any dashboard is open, plus its device page and popup. On: on dashboards, only refresh while the open dashboard actually shows it.",
+            "interval": "Leave empty to use each target's own native polling interval. Set a value only to force a fixed rate while it is on screen."
+          }
+        }
+      },
+      "abort": {
+        "already_configured": "That integration is already added.",
+        "reconfigure_successful": "Saved."
+      }
+    },
+    "device": {
+      "initiate_flow": {
+        "user": "Add a device"
+      },
+      "entry_type": "Device",
+      "step": {
+        "user": {
+          "title": "Make a device view-aware",
+          "description": "Make one device view-aware. It stops polling in the background and refreshes only while you are looking at it.",
+          "data": {
+            "target": "Device",
+            "only_when_shown": "Only refresh on a dashboard that shows it",
+            "interval": "Refresh interval override (seconds)"
+          },
+          "data_description": {
+            "target": "The device to make view-aware.",
+            "only_when_shown": "Off (recommended): refresh whenever any dashboard is open, plus its device page and popup. On: on dashboards, only refresh while the open dashboard actually shows it.",
+            "interval": "Leave empty to use the device's own native polling interval. Set a value only to force a fixed rate while it is on screen."
+          }
+        },
+        "reconfigure": {
+          "title": "Edit {name}",
+          "description": "Change how {name} is made view-aware.",
+          "data": {
+            "only_when_shown": "Only refresh on a dashboard that shows it",
+            "interval": "Refresh interval override (seconds)"
+          },
+          "data_description": {
+            "only_when_shown": "Off (recommended): refresh whenever any dashboard is open, plus its device page and popup. On: on dashboards, only refresh while the open dashboard actually shows it.",
+            "interval": "Leave empty to use the device's own native polling interval. Set a value only to force a fixed rate while it is on screen."
+          }
+        }
+      },
+      "abort": {
+        "already_configured": "That device is already added.",
+        "reconfigure_successful": "Saved."
+      }
+    },
+    "entity": {
+      "initiate_flow": {
+        "user": "Add an entity"
+      },
+      "entry_type": "Entity",
+      "step": {
+        "user": {
+          "title": "Make an entity view-aware",
+          "description": "Make one entity view-aware. It stops polling in the background and refreshes only while you are looking at it.",
+          "data": {
+            "target": "Entity",
+            "only_when_shown": "Only refresh on a dashboard that shows it",
+            "interval": "Refresh interval override (seconds)"
+          },
+          "data_description": {
+            "target": "The entity to make view-aware.",
+            "only_when_shown": "Off (recommended): refresh whenever any dashboard is open, plus its popup. On: on dashboards, only refresh while the open dashboard actually shows it.",
+            "interval": "Leave empty to use the entity's own native polling interval. Set a value only to force a fixed rate while it is on screen."
+          }
+        },
+        "reconfigure": {
+          "title": "Edit {name}",
+          "description": "Change how {name} is made view-aware.",
+          "data": {
+            "only_when_shown": "Only refresh on a dashboard that shows it",
+            "interval": "Refresh interval override (seconds)"
+          },
+          "data_description": {
+            "only_when_shown": "Off (recommended): refresh whenever any dashboard is open, plus its popup. On: on dashboards, only refresh while the open dashboard actually shows it.",
+            "interval": "Leave empty to use the entity's own native polling interval. Set a value only to force a fixed rate while it is on screen."
+          }
+        }
+      },
+      "abort": {
+        "already_configured": "That entity is already added.",
+        "reconfigure_successful": "Saved."
+      }
+    }
+  }
+}
