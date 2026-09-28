@@ -106,7 +106,15 @@
       }
     }
     if (due.length) {
-      h.callService("homeassistant", "update_entity", { entity_id: due });
+      // Pass showNotification = false (5th argument) and catch any rejection so background
+      // view-aware polling never pops up a user-facing error toast in the UI.
+      h.callService("homeassistant", "update_entity", { entity_id: due }, undefined, false)
+        .catch((err) => {
+          if (h.debugConnection) {
+            // eslint-disable-next-line no-console
+            console.debug("[view_aware_polling] Background update failed:", err);
+          }
+        });
     }
   }
 

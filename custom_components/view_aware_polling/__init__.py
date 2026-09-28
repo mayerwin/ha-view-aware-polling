@@ -114,7 +114,9 @@ def _build_payload(hass: HomeAssistant, entry: ConfigEntry | None) -> tuple[dict
         ]
         if not ents:
             continue
-        rep = ents[0]
+        # Prefer state-holding sensors over stateless button/switch entities
+        sensors = [e for e in ents if e.startswith(("sensor.", "binary_sensor."))]
+        rep = sensors[0] if sensors else ents[0]
         device_reps[dev_id] = rep
         for e in ents:
             eid_rep[e] = rep

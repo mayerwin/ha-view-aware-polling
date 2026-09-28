@@ -2,7 +2,7 @@
 DOMAIN = "view_aware_polling"
 
 MODULE_PATH = "/view_aware_polling/view_aware_polling.js"
-MODULE_VERSION = "0.6.0"
+MODULE_VERSION = "0.6.1"
 
 # Used only when a target's native polling interval can't be determined
 # (e.g. a push-based or non-coordinator integration).
